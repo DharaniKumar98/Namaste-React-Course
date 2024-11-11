@@ -1,45 +1,30 @@
 import React from "react";
-import ReactDOM from "react-dom/client"
-const heading = React.createElement(
-  "h1",
-  { id: "heading" },
-  "Hello World! from React"
+import ReactDOM from "react-dom/client";
+
+// React Element
+const jsxHeading = <h1>Hello from React!</h1>;
+console.log(jsxHeading);
+
+const Greeting = ({ name }) => <h1>Hello, {name}!</h1>;
+const element = <Greeting name="Alice" />;
+
+// React functional Components
+const H2Component = () => {
+  return <h1>"React Functional Component with return in curlybraces"</h1>;
+};
+
+// Component Compostion 
+// different ways of using a component in another component
+const HComponent = () => (
+  <div id="container">
+    <H2Component/>
+    <H2Component></H2Component>
+    {H2Component()}
+    {jsxHeading} 
+    <h1>"React Functional Component without return in paranthesis"</h1>
+  </div>
 );
 
-console.log(heading); // here is heading is not an HTML element , it is a js object
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
-
-console.log(root);
-
-//root.render(h1Eelement);
-
-// this render function takes the js obejct, converts to HTML element &
-//adds that HTML element to root HTML element defined using root
-
-// how to create nested HTML elements using the above React API.
-// like
-
-/*
-<div ="parent">
-    <div id="child">
-        <h1> </h1>
-    </div>
-</div>
-*/
-
-const nested = React.createElement("div", { id: "parent" }, [
-  React.createElement("div", { id: "child1" }, [
-    React.createElement("h1", {}, "child1 h1 Hello 🚀"),
-    React.createElement("h2", {}, "child1 h2 Hello"),
-  ]),
-  React.createElement("div", { id: "child2" }, [
-    React.createElement("h1", {}, "child2 h1 Hello"),
-    React.createElement("h2", {}, "child2 h2 Hello"),
-  ]),
-]);
-
-// to avoid this complexity - JSX is used
-// JSX is simplifies the way we create HTML elements using react
-
-root.render(nested);
+//root.render(jsxHeading); - this how we reneder a react element
+root.render(<HComponent />); //- this how we render a react Component
