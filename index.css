@@ -51,3 +51,11 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.search-filter {
+    display: flex;
+}
+
+.filter-btn {
+    margin-top: 10px;
+}
