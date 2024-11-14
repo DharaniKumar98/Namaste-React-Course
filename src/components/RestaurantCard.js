@@ -12,7 +12,7 @@ const RestaurantCard = (props) => {
     sla,
     costForTwo,
     cloudinaryImageId,
-  } = props.resdata;
+  } = props.resData?.info;
 
   return (
     <div className="res-card" style={styleCard}>
@@ -22,7 +22,7 @@ const RestaurantCard = (props) => {
         alt="res-logo"
       />
       <h3>{name}</h3>
-      <h4>{cuisines.join(",")}</h4>
+      <h4>{cuisines.join(", ")}</h4>
       <h4>{avgRatingString}</h4>
       <h4>{sla?.deliveryTime} mins</h4>
       <h4>{costForTwo}</h4>
