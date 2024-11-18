@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [listOfRes, setListOfRes] = useState([]);
@@ -27,6 +28,11 @@ const Body = () => {
         ?.infoWithStyle?.restaurants
     );
   };
+
+  const onlineStatus = useOnlineStatus();
+  if ( onlineStatus === false){
+    return <h1>The network connection has been lost.</h1>
+  }
 
   if (listOfRes.length === 0) {
     return <Shimmer />;
