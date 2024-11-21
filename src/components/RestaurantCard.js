@@ -1,10 +1,15 @@
+import { useContext } from "react";
 import { CDN_URL } from "../utils/constants";
+import UserContext from "../utils/userContext";
 
 const styleCard = {
   backgroundColor: "#f0f0f0",
 };
 
 const RestaurantCard = (props) => {
+
+  const {loggedInUser} = useContext(UserContext);
+
   const {
     name,
     cuisines,
@@ -26,8 +31,21 @@ const RestaurantCard = (props) => {
       <h4>{avgRatingString}</h4>
       <h4>{sla?.deliveryTime} mins</h4>
       <h4>{costForTwo}</h4>
+      <h4>{loggedInUser}</h4>
     </div>
   );
 };
+
+//Higher order component - take component as input & returns an modified component 
+export const resCardWithLabel = (RestaurantCard) => {
+  return (props) => {
+    return (
+      <div>
+      <label>Promoted</label>
+      <RestaurantCard {...props}/>
+      </div>
+    )
+  }
+}
 
 export default RestaurantCard;
