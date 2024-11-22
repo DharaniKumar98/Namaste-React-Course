@@ -16,3 +16,13 @@ Footer
  - Address
  - Contact Details
 */
+
+
+# Redux
+- Install @reduxjs/toolkit , react-redux
+- Build our store
+- Connect store to the app
+- create Slice  (cartSlice)
+- dispatch(action)
+- Selector
+- 
