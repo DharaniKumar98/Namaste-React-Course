@@ -49,6 +49,7 @@ const Body = () => {
     <div className="body">
       <div className="search-filter m-1 p-1 flex ">
         <input
+          data-testid = "searchInput"
           type="text"
           name="search-string"
           className="border border-solid border-black rounded-md"
@@ -73,7 +74,7 @@ const Body = () => {
             className="px-2 mx-2 bg-gray-200 rounded-md"
             onClick={() => {
               const filteredList = listOfRes.filter(
-                (res) => res.info.avgRating > 4.2
+                (res) => res.info.avgRating > 4.3
               );
               //setListOfRes(filteredList);
               setFilteredList(filteredList);
